@@ -1,0 +1,36 @@
+Kompozyt - jest to strukturalny wzorzec projektowy, który upraszcza układ powiązanych ze sobą klas.
+Budowanie hierarchi jest niemal nierozłączne z programowaniem, pozwala na łatwiejsze poruszanie się po architekturze aplikacji. 
+Główną zaletą omawianego wzorca jest to, że dzięki niemu mamy możliwość zarządzania grupą obiektów jak jednym z nich. 
+Konsekwencją płynącą z nieużywania Kompozytu może być ciężki do rozbudowy kod. 
+Bez zmiany dotychczasowej architektury aplikacji, dodawanie każdej nowej klasy do istniejącej już struktury może dla nas oznaczać o wiele więcej pracy.
+Dzięki wzorcu projektowemu Kompozyt możemy z łatwością sterować wieloma obiektami. 
+
+Obserwator - Wielokrotnie w naszej aplikacji może pojawić się potrzeba dokonania aktualizacji danej części aplikacji zmianą status z innej cześci aplikacji. 
+Jedną z możliwości jest przygotowanie specjalnego modułu odbioru powiadomień, który wielokrotnie sprawdza czy nadeszły jakieś aktualizacje. 
+Takie podejście ma jednak dwa główne problemy. 
+Po pierwsze, takie sprawdzanie aktualizacji obciąża procesor a drugi to interwał pomiędzy kolejnymi sprawdzeniami, nie uzyskamy informacji o aktualizacji w trybie natychmiastowym.
+wszystkie klasy jedna po drugiej:
+Subject - klasa ta zawiera listę wszystkich obserwatorów i dostarcza funkcjonalność pozwalającą nam dodawanie lub usuwanie obserwatora. 
+Klasa ta jest również odpowiedzialna za aktualizacje obserwatorów, gdy dochodzi do jakiejś zmiany. 
+ConcreteSubject - klasa ta jest klasą implementującą Subject. Klasa ta jest encją, której zmiana wpłynie na wszystkie inne obiekty. 
+Observer - określa interfejs definiujący metody, które powinny być wywołane, gdy dochodzi do zmiany.
+ConcreteObserver - to jest klasa, która musi aktualizować samą siebie wraz ze zmianą. 
+Klasa ta musi zaimplementować Observer oraz zarejestrować siebie z ConcretSubject, aby otrzymywać powiadomienia.
+
+Strategia - Wzorzec strategii może być traktowany jako wzorzec projektowy reprezentujący zachowanie, który jedocześnie jest prosty w implementacji i łatwy w zrozumieniu. 
+Znajduje on zostosowanie w scenariuszach, w których obiekt będzie odpowiedzialny za wykonywanie wspólnych działań, które będą wybierane z szeregu dostępnych opcji.
+"Wzorzec strategii definiuje rodzinę algorytmów, które są odpowiedzialne za wykonanie zadania na kilka różnych sposobów. 
+Algorytmy takie muszą zostać poddane hermetyzacji oraz mogą być zamieniane w trakcie wykonywania programu”. Rozbijmy definicję na trzy części:
+Rodzina algorytmów - definicja ta mówi nam o tym, iż definiujemy kilka algorytmów, które mają tą samą funkcjonalność (np. sortowanie), ale proces ten wykonują w odmienny sposób;
+Hermetyzacja - odznacza, iż wzorzec wymusza od nas, aby alogrytmy były umieszczone w różnych klasach. Takie zachowanie pomaga nam w wyborze odpowiedniego algorytmu dla naszego obiektu;
+Zamienność - zaleta wzorca polega na możliwości wyboru algorytmu w trakcie wykonywania programu oraz przypisania go do naszego obiektu.
+
+Metoda wytwórcza jest kreacyjnym wzorcem projektowym rozwiązującym problem tworzenia obiektów-produktów bez określania ich konkretnych klas.
+
+Metoda wytwórcza definiuje metodę która ma służyć tworzeniu obiektów bez bezpośredniego wywoływania konstruktora (poprzez operator new). 
+Podklasy mogą nadpisać tę metodę w celu zmiany klasy tworzonych obiektów.
+Wzorzec Metoda wytwórcza jest często stosowany w kodzie C#. Przydaje się gdy chcesz nadać swojemu kodowi wysoki poziom elastyczności.
+
+Dekorator - jest jednym z wzorców strukturalnych i służy głównie do dynamicznego dodawania dodatkowych zachować do istniejących klas. 
+Za jego pomocą opakowujemy rozszerzany typ, który na ogół jest przekazywany do dekorator jako parametry w konstruktorze. 
+Dekorator dodaje jakieś zachowanie przed/po wywołaniu kodu dekorowanego obiektu. Możemy mieć w systemie wiele dekoratorów, które dodają kolejne zachowania, a następnie możemy komponować je w zależności od potrzeby.
